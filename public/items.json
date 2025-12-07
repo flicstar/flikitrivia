@@ -1,7 +1,7 @@
 {"id":"b001","label":"Ross McCormack","year":1947,"date_prop_id":"P569","description":"Born in Sydney, NSW. Second son to Eric and Jean.","image":"images/birth.png","instance_of":["Family member"],"category":"family"}
-{"id":"b002","label":"Andrew McCormack","year":1975,"date_prop_id":"P569","description":"Born in Sydney, NSW. ","image":"images/birth.png","instance_of":["Family member"],"category":"family"}
+{"id":"b002","label":"Andrew McCormack","year":1975,"date_prop_id":"P569","description":"Born in Sydney, NSW.","image":"images/birth.png","instance_of":["Family member"],"category":"family"}
 {"id":"b003","label":"Sue Basedow (nee Ferguson)","year":1956,"date_prop_id":"P569","description":"Born in Sydney, NSW. ","image":"images/birth.png","instance_of":["Addition to family"],"category":"family"}
-{"id":"p001","label":"Family cookbook Vol 1","year":2004,"date_prop_id":"P577","description":"Features "Flygande Jacob" and beef stroganoff","image":"images/milestone.png","instance_of":["Family publication"],"category":"family"}
+{"id":"p001","label":"Family cookbook Vol 1","year":2004,"date_prop_id":"P577","description":"Features Flygande Jacob and beef stroganoff","image":"images/milestone.png","instance_of":["Family publication"],"category":"family"}
 {"id":"p002","label":"Family cookbook Vol 2","year":2009,"date_prop_id":"P577","description":"Features Schmidt christmas honey biscuits","image":"images/milestone.png","instance_of":["Family publication"],"category":"family"}
 {"id":"m001","label":"David and Jennifer McCormack","year":2002,"date_prop_id":"P2842","description":"Winter, Mt Tambourine QLD","image":"images/wedding.png","instance_of":["Wedding"],"category":"family"}
 {"id":"m002","label":"Andrew and Felicity Brand","year":2008,"date_prop_id":"P2842","description":"Winter, Yarra Valley VIC","image":"images/wedding.png","instance_of":["Wedding"],"category":"family"}
