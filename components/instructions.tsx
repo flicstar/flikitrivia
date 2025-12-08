@@ -44,9 +44,23 @@ export default function Instructions(props: Props) {
             , and{" "}
               Family history.     
           </div>
-          <div>
-            Made with ♥ by flicstar            
+         <div>
+            Made with ♥ by flicstar based on Tom Watson's {" "}
+            <a
+              href="https://github.com/tom-james-watson/wikitrivia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Wikitrivia game
+            </a>
+            .
           </div>
+          <GitHubButton
+            href="https://github.com/tom-james-watson/wikitrivia"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star tom-james-watson/wikitrivia on GitHub"
+          ></GitHubButton>
         </div>
       </div>
     </div>
