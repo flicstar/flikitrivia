@@ -31,8 +31,8 @@ export default function Instructions(props: Props) {
               rel="noopener noreferrer"
             >
               Wikidata
-            </a>{" "}
-            ,{" "}
+            </a>
+            ,
             <a
               href="https://www.wikipedia.org"
               target="_blank"
@@ -40,9 +40,9 @@ export default function Instructions(props: Props) {
             >
               Wikipedia
             </a>
-            {" "}
-            , and{" "}
-              Family history.     
+            
+            , and
+              family history.     
           </div>
          <div>
             Made with ♥ by flicstar based on Tom Watson&#39;s{" "}
