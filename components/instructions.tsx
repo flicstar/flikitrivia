@@ -32,7 +32,7 @@ export default function Instructions(props: Props) {
             >
               Wikidata
             </a>{" "}
-            and{" "}
+            ,{" "}
             <a
               href="https://www.wikipedia.org"
               target="_blank"
@@ -40,27 +40,13 @@ export default function Instructions(props: Props) {
             >
               Wikipedia
             </a>
-            .
+            {" "}
+            , and{" "}
+              Family history.     
           </div>
           <div>
-            Have feedback? Please report it on{" "}
-            <a
-              href="https://github.com/tom-james-watson/wikitrivia/issues/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            .
+            Made with ♥ by flicstar            
           </div>
-          <GitHubButton
-            href="https://github.com/tom-james-watson/wikitrivia"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star tom-james-watson/wikitrivia on GitHub"
-          >
-            Star
-          </GitHubButton>
         </div>
       </div>
     </div>
