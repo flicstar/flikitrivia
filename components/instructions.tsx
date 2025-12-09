@@ -45,7 +45,9 @@ export default function Instructions(props: Props) {
               family history.     
           </div>
          <div>
-            Made with ♥ by flicstar based on Tom Watson&#39;s{" "}
+            Made with ♥ by <a href="https://flicstar.com target="_blank"
+              rel="noopener noreferrer"
+            >flicstar </a> based on Tom Watson&#39;s{" "}
             <a
               href="https://github.com/tom-james-watson/wikitrivia/"
               target="_blank"

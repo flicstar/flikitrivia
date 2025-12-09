@@ -2,7 +2,7 @@ import { Item, PlayedItem } from "../types/item";
 import { createWikimediaImage } from "./image";
 
 export function getRandomItem(deck: Item[], played: Item[]): Item {
-  const useFamily = Math.random() < 0.25; // 1 in 4 cards
+  const useFamily = Math.random() < 0.50; // 1 in 4 cards
 
   const familyCandidates = deck.filter(c => c.category === "family");
   const triviaCandidates = deck.filter(c => c.category !== "family");
