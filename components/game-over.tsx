@@ -2,7 +2,6 @@ import React from "react";
 import { animated, useSpring } from "react-spring";
 import styles from "../styles/game-over.module.scss";
 import Button from "./button";
-import Score from "./score";
 
 interface Props {
   resetGame: () => void;

@@ -2,7 +2,6 @@ import React from "react";
 import GitHubButton from "react-github-btn";
 import styles from "../styles/instructions.module.scss";
 import Button from "./button";
-import Score from "./score";
 
 interface Props {
   start: () => void;
