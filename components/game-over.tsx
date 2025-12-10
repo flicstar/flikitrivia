@@ -36,9 +36,9 @@ export default function GameOver(props: Props) {
 
   const share = React.useCallback(async () => {
     await navigator?.clipboard?.writeText(
-      `⭐ flikitrivia.pages.dev\n\n${getMedal(
+      `famozily.pages.dev\n\n${getMedal(
         score
-      )}Streak: ${score}\n${getMedal(highscore)}Best Streak: ${highscore}`
+      )}Streak: ${score}\n${getMedal(highscore)}`
     );
     setShareText("Copied");
     setTimeout(() => {
@@ -51,9 +51,6 @@ export default function GameOver(props: Props) {
       <div className={styles.scoresWrapper}>
         <div className={styles.score}>
           <Score score={score} title="Streak" />
-        </div>
-        <div className={styles.score}>
-          <Score score={highscore} title="Best streak" />
         </div>
       </div>
       <div className={styles.buttons}>
