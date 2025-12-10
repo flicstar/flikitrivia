@@ -51,6 +51,9 @@ export default function GameOver(props: Props) {
       <div className={styles.scoresWrapper}>
         <div className={styles.score}>
           <Score score={score} title="Streak" />
+          <div className={styles.score}>
+          <Score score={highscore} title="Best streak" />
+        </div>
         </div>
       </div>
       <div className={styles.buttons}>
