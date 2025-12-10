@@ -24,7 +24,7 @@ const datePropIdMap: { [datePropId: string]: string } = {
   P577: "published",
   P580: "started",
   P582: "ended",
-  P585: "happened",
+  P585: "occurred",
   P586: "introduced",
   P588: "released",
   P589: "formed",
