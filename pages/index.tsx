@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Flikitrivia</title>
+        <title>Famozily</title>
         <link
           rel="shortcut icon"
           href="favicon.ico"
