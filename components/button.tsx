@@ -5,7 +5,7 @@ import styles from "../styles/button.module.scss";
 interface Props {
   minimal?: boolean;
   onClick: () => void;
-  text: string;
+  text?: string;
   children?: React.ReactNode;
 }
 
