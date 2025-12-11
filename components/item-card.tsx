@@ -131,19 +131,21 @@ const type = React.useMemo(() => {
                 {capitalize(datePropIdMap[item.date_prop_id])}: {item.year}
               </span>
               <span className={styles.description}>{item.description}.</span>
-              <a
-                href={`https://www.wikipedia.org/wiki/${encodeURIComponent(
-                  item.wikipedia_title
-                )}`}
-                className={styles.wikipedia}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                Wikipedia
-              </a>
+              {item.category === "wiki" && item.wikipedia_title && (
+  <a
+    href={`https://www.wikipedia.org/wiki/${encodeURIComponent(
+      item.wikipedia_title
+    )}`}
+    className={styles.wikipedia}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={(e) => {
+      e.stopPropagation();
+    }}
+  >
+    Wikipedia
+  </a>
+)}
             </animated.div>
           </div>
         );

@@ -10,7 +10,7 @@ export interface Item {
   page_views: number;
   wikipedia_title: string;
   year: number;
-  category: string;
+  category: "wiki" | "family";
 }
 
 export type PlayedItem = Item & {

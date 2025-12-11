@@ -47,7 +47,7 @@ export default function Instructions(props: Props) {
   </a>
 </div>
           <GitHubButton
-            href="https://github.com/tom-james-watson/wikitrivia"
+            href="https://github.com/flicstar/flikitrivia"
             data-size="large"
           ></GitHubButton>
         </div>
