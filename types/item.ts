@@ -3,6 +3,7 @@ export interface Item {
   description: string;
   id: string;
   image: string;
+  imageUrl?: string;
   instance_of: string[];
   label: string;
   num_sitelinks: number;

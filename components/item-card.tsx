@@ -99,7 +99,7 @@ const type = React.useMemo(() => {
               <div
                 className={styles.image}
                 style={{
-                  backgroundImage: `url("${createWikimediaImage(item.image)}")`,
+                  backgroundImage: `url("${createWikimediaImage(item.imageUrl || item.image)}")`,
                 }}
               ></div>
               <animated.div
