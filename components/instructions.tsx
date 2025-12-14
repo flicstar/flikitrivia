@@ -15,7 +15,7 @@ export default function Instructions(props: Props) {
       <div className={styles.wrapper}>
         <h1 className={styles.title}>Famozily</h1>
         <h2>Place the cards on the timeline in the correct order</h2>
-        <Button onClick={start} text="Start game" />
+        <Button onClick={start} text="Play" />
         <div className={styles.about}>
                    <div>
   Made with ♥ by{" "}
