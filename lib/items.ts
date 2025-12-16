@@ -2,7 +2,9 @@ import { Item, PlayedItem } from "../types/item";
 import { createWikimediaImage } from "./image";
 
 export function getRandomItem(deck: Item[], played: Item[]): Item {
-  const useFamily = Math.random() < 0.50; // 1 in 4 cards
+  // If you still want category weighting, keep it:
+  const useFamily = Math.random() < 0.25;
+
 
   const familyCandidates = deck.filter(c => c.category === "family");
   const triviaCandidates = deck.filter(c => c.category !== "family");
@@ -13,38 +15,64 @@ export function getRandomItem(deck: Item[], played: Item[]): Item {
     : triviaCandidates;
     
   const periods: [number, number][] = [
-    [-100000, 1000],
-    [1000, 1800],
-    [1800, 2020],
+    [1770, 1849],
+    [1850, 1900],
+    [1901, 1945],
+    [1946, 1975],
+    [1976, 2000],
+    [2001, 2024],
   ];
-  const [fromYear, toYear] =
-    periods[Math.floor(Math.random() * periods.length)];
-  const avoidPeople = Math.random() > 0.5;
-  const candidates = source.filter((candidate) => {
-    if (avoidPeople && candidate.instance_of.includes("human")) {
-      return false;
-    }
-    if (candidate.year < fromYear || candidate.year > toYear) {
-      return false;
-    }
-    if (tooClose(candidate, played)) {
-      return false;
-    }
+ const [fromYear, toYear] = periods[Math.floor(Math.random() * periods.length)];
+
+  const filtered = source.filter(candidate => {
+    if (candidate.year < fromYear || candidate.year > toYear) return false;
+
+    // Prevent same-year duplicates
+    if (played.some(p => p.year === candidate.year)) return false;
+
+    // Keep or tweak closeness
+    if (tooClose(candidate, played)) return false;
+
     return true;
   });
 
-  if (candidates.length > 0) {
-    return candidates[Math.floor(Math.random() * candidates.length)];
+  if (filtered.length > 0) {
+    return filtered[Math.floor(Math.random() * filtered.length)];
   }
+
+  // Fallback: try again without the period restriction, but still prevent duplicates/closeness
+  const relaxed = source.filter(candidate => {
+    if (played.some(p => p.year === candidate.year)) return false;
+    if (tooClose(candidate, played)) return false;
+    return true;
+  });
+
+  if (relaxed.length > 0) {
+    return relaxed[Math.floor(Math.random() * relaxed.length)];
+  }
+
+  // Absolute last resort: just avoid same-year duplicates at least
+  const noSameYear = deck.filter(candidate => !played.some(p => p.year === candidate.year));
+  if (noSameYear.length > 0) {
+    return noSameYear[Math.floor(Math.random() * noSameYear.length)];
+  }
+
+  // If deck is tiny / all years already used, give up gracefully
   return deck[Math.floor(Math.random() * deck.length)];
 }
 
 function tooClose(item: Item, played: Item[]) {
-  let distance = (played.length < 40) ? 5 : 1;
-  if (played.length < 11)
-    distance = 110 - 10 * played.length;
+  if (played.length === 0) return false;
 
-  return played.some((p) => Math.abs(item.year - p.year) < distance);
+  // Start wider to make early placement easier, then tighten.
+  // You can tune these numbers based on playtesting.
+  let distance =
+    played.length < 4 ? 25 :
+    played.length < 10 ? 12 :
+    played.length < 25 ? 6 :
+    3;
+
+  return played.some(p => Math.abs(item.year - p.year) < distance);
 }
 
 export function checkCorrect(
