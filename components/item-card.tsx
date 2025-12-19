@@ -51,6 +51,16 @@ export default function ItemCard(props: Props) {
   const { draggable, flippedId, index, item, setFlippedId } = props;
 
   const flipped = item.id === flippedId;
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+  if (!draggable) return;
+  if (e.pointerType === "touch" || e.pointerType === "pen") {
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  }
+};
+
+   const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLDivElement>) => {
+  e.currentTarget.releasePointerCapture?.(e.pointerId);
+};
 
   const cardSpring = useSpring({
     opacity: flipped ? 1 : 0,
@@ -75,6 +85,9 @@ const type = React.useMemo(() => {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUpOrCancel}
+            onPointerCancel={handlePointerUpOrCancel}
             onClick={() => {
               if ("played" in item && setFlippedId) {
                 if (flipped) {
