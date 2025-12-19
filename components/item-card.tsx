@@ -12,6 +12,8 @@ type Props = {
   index: number;
   item: Item | PlayedItem;
   setFlippedId?: (flippedId: string | null) => void;
+onArmStart?: () => void;
+  onArmEnd?: () => void;
 };
 
 const datePropIdMap: { [datePropId: string]: string } = {
@@ -56,12 +58,15 @@ export default function ItemCard(props: Props) {
   if (!draggable) return;
   if (e.pointerType === "touch" || e.pointerType === "pen") {
     e.currentTarget.setPointerCapture?.(e.pointerId);
+     props.onArmStart?.();
   }
 };
-   const [arming, setArming] = useState(false);
-
-   const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLDivElement>) => {
+   
+const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLDivElement>) => {
   e.currentTarget.releasePointerCapture?.(e.pointerId);
+  if (e.pointerType === "touch" || e.pointerType === "pen") {
+    props.onArmEnd?.();
+  }
 };
 
    React.useEffect(() => {
@@ -97,30 +102,26 @@ const type = React.useMemo(() => {
       {(provided, snapshot) => {
         return (
           <div
-           ref={(node) => {
-            cardRef.current = node;
-            provided.innerRef(node);
-          }}  
-          className={classNames(styles.itemCard, {
-              [styles.played]: "played" in item,
-              [styles.flipped]: flipped,
-              [styles.dragging]: snapshot.isDragging,
-            })}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            onPointerDown={() => setArming(true)}
-onPointerUp={() => setArming(false)}
-onPointerCancel={() => setArming(false)}
-            onClick={() => {
-              if ("played" in item && setFlippedId) {
-                if (flipped) {
-                  setFlippedId(null);
-                } else {
-                  setFlippedId(item.id);
-                }
-              }
-            }}
-          >
+  ref={(node) => {
+    cardRef.current = node;
+    provided.innerRef(node);
+  }}
+  className={classNames(styles.itemCard, {
+    [styles.played]: "played" in item,
+    [styles.flipped]: flipped,
+    [styles.dragging]: snapshot.isDragging,
+  })}
+  {...provided.draggableProps}
+  {...provided.dragHandleProps}
+  onPointerDown={handlePointerDown}
+  onPointerUp={handlePointerUpOrCancel}
+  onPointerCancel={handlePointerUpOrCancel}
+  onClick={() => {
+    if ("played" in item && setFlippedId) {
+      setFlippedId(flipped ? null : item.id);
+    }
+  }}
+>
             <animated.div
               className={styles.front}
               style={{

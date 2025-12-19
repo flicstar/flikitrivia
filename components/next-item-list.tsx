@@ -11,7 +11,8 @@ interface NextItemListProps {
 export default function NextItemList(props: NextItemListProps) {
   const { next } = props;
   
-  const [arming, setArming] = useState(false);
+  const [arming, setArming] = React.useState(false);
+
 
   return (
     <div className={styles.container}>
