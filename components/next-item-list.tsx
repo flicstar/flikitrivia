@@ -10,12 +10,14 @@ interface NextItemListProps {
 
 export default function NextItemList(props: NextItemListProps) {
   const { next } = props;
+  
+  const [arming, setArming] = useState(false);
 
   return (
     <div className={styles.container}>
       <Droppable droppableId="next" direction="horizontal">
         {(provided) => (
-          <div className={styles.wrapper}>
+          <div className={styles.wrapper}<div className={classNames(styles.wrapper, { [styles.arming]: arming })}>
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}

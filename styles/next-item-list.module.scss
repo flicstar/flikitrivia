@@ -13,6 +13,43 @@
     border: 1px dashed $dashes;
     border-radius: 5px;
 
+  .wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid $dashes;
+
+  .wrapper.arming::after {
+  opacity: 1;
+  animation: arm-outline 300ms linear forwards;
+}
+
+@keyframes arm-outline {
+  from {
+    mask: conic-gradient(
+      black 0deg,
+      transparent 0deg
+    );
+  }
+  to {
+    mask: conic-gradient(
+      black 360deg,
+      transparent 0deg
+    );
+  }
+}
+
+  /* hidden by default */
+  opacity: 0;
+
+  /* mask for clockwise reveal */
+  mask: conic-gradient(
+    black 0deg,
+    transparent 0deg
+  );
+}
+    
     .list {
       height: 240px;
     }

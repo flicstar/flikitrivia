@@ -58,6 +58,7 @@ export default function ItemCard(props: Props) {
     e.currentTarget.setPointerCapture?.(e.pointerId);
   }
 };
+   const [arming, setArming] = useState(false);
 
    const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLDivElement>) => {
   e.currentTarget.releasePointerCapture?.(e.pointerId);
@@ -107,9 +108,9 @@ const type = React.useMemo(() => {
             })}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUpOrCancel}
-            onPointerCancel={handlePointerUpOrCancel}
+            onPointerDown={() => setArming(true)}
+onPointerUp={() => setArming(false)}
+onPointerCancel={() => setArming(false)}
             onClick={() => {
               if ("played" in item && setFlippedId) {
                 if (flipped) {
