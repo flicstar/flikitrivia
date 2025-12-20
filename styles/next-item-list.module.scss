@@ -5,53 +5,50 @@
   justify-content: center;
   align-items: center;
   margin: 40px 0;
+}
 
-  .wrapper {
-    padding-left: 20px;
-    width: 192px;
-    position: relative;
-    border: 1px dashed $dashes;
-    border-radius: 5px;
+.wrapper {
+  padding-left: 20px;
+  width: 192px;
+  position: relative;
+  border: 1px dashed $dashes;
+  border-radius: 5px;
+}
 
-  .wrapper::after {
+/* This MUST be top-level so CSS modules exports styles.arming */
+.arming {}
+
+/* Solid border layer that we reveal clockwise */
+.wrapper::after {
   content: "";
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
+  inset: -1px;                /* align over the dashed border */
+  border-radius: 5px;
   border: 1px solid $dashes;
+  opacity: 0;
+  pointer-events: none;
 
-  .wrapper.arming::after {
+  /* start hidden */
+  -webkit-mask: conic-gradient(#000 0deg, transparent 0deg);
+  mask: conic-gradient(#000 0deg, transparent 0deg);
+}
+
+.wrapper.arming::after {
   opacity: 1;
   animation: arm-outline 300ms linear forwards;
 }
 
 @keyframes arm-outline {
   from {
-    mask: conic-gradient(
-      black 0deg,
-      transparent 0deg
-    );
+    -webkit-mask: conic-gradient(#000 0deg, transparent 0deg);
+    mask: conic-gradient(#000 0deg, transparent 0deg);
   }
   to {
-    mask: conic-gradient(
-      black 360deg,
-      transparent 0deg
-    );
+    -webkit-mask: conic-gradient(#000 360deg, transparent 0deg);
+    mask: conic-gradient(#000 360deg, transparent 0deg);
   }
 }
 
-  /* hidden by default */
-  opacity: 0;
-
-  /* mask for clockwise reveal */
-  mask: conic-gradient(
-    black 0deg,
-    transparent 0deg
-  );
-}
-    
-    .list {
-      height: 240px;
-    }
-  }
+.list {
+  height: 240px;
 }
