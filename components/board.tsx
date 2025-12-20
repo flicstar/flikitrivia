@@ -16,6 +16,12 @@ interface Props {
 }
 
 export default function Board(props: Props) {
+   React.useEffect(() => {
+    if (typeof navigator === "undefined") return;
+
+    const isFirefox = /Firefox\/\d+/.test(navigator.userAgent);
+    document.body.classList.toggle("isFirefox", isFirefox);
+  }, []);
   const { resetGame, state, setState } = props;
 
   const [isDragging, setIsDragging] = React.useState(false);

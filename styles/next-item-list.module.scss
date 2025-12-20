@@ -89,3 +89,10 @@
     stroke-dashoffset: 0;
   }
 }
+
+:global(body.isFirefox) .tracePath {
+  animation: none;
+  stroke-dashoffset: 0; /* fully drawn immediately */
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+}
