@@ -169,14 +169,14 @@
   /* Make year/label a touch larger on played cards */
   .itemCard.played .bottom {
     line-height: 34px;
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .itemCard.played .label {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .itemCard.played .description {
-    font-size: 12px; /* keep as-is or slightly smaller if needed */
+    font-size: 10px; /* keep as-is or slightly smaller if needed */
   }
 }
