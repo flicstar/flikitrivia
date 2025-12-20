@@ -21,12 +21,14 @@
 }
 
 .top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  position: relative;
+  padding-right: 120px; /* space so title never runs under hearts */
+}
 
-  /* Optional but recommended for very small screens */
-  flex-wrap: wrap;
+.hearts {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .bottom {

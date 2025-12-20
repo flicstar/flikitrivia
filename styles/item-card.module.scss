@@ -165,7 +165,12 @@
     height: 160px;
     margin-right: 12px;
   }
-
+ /* stronger override if needed */
+  .itemCard.dragging.itemCard {
+    width: 120px;
+    height: 160px;
+  }
+}
   /* Make year/label a touch larger on played cards */
   .itemCard.played .bottom {
     line-height: 34px;

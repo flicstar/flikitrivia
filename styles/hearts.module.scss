@@ -1,10 +1,9 @@
 .hearts {
   display: flex;
-  justify-content: right;
-  margin-top: 20px;
+  gap: 10px;
+}
 
-  .heart {
-    height: 30px;
-    margin: 6px;
-  }
+.heart {
+  height: 30px;
+  width: 30px;
 }
