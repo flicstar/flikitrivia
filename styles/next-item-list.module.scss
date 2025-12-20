@@ -15,37 +15,78 @@
   border-radius: 5px;
 }
 
-/* This MUST be top-level so CSS modules exports styles.arming */
 .arming {}
 
 /* Solid border layer that we reveal clockwise */
 .wrapper::after {
   content: "";
   position: absolute;
-  inset: -1px;                /* align over the dashed border */
-  border-radius: 5px;
-  border: 1px solid $dashes;
-  opacity: 0;
+  inset: -3px;              /* slightly outside so glow can breathe */
+  border-radius: 7px;       /* match inset radius visually */
   pointer-events: none;
+  border: 3px solid $dashes;
 
-  /* start hidden */
-  -webkit-mask: conic-gradient(#000 0deg, transparent 0deg);
-  mask: conic-gradient(#000 0deg, transparent 0deg);
+  /* glow (reads immediately on dark bg) */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35))
+          drop-shadow(0 0 16px rgba(255, 255, 255, 0.22));
+
+  opacity: 0;
+
+  -webkit-mask: conic-gradient(
+    transparent 0deg,
+    transparent 320deg,
+    rgba(0, 0, 0, 0.15) 330deg,
+    rgba(0, 0, 0, 0.55) 345deg,
+    #000 360deg
+  );
+  mask: conic-gradient(
+    transparent 0deg,
+    transparent 320deg,
+    rgba(0, 0, 0, 0.15) 330deg,
+    rgba(0, 0, 0, 0.55) 345deg,
+    #000 360deg
+  );
 }
 
 .wrapper.arming::after {
   opacity: 1;
-  animation: arm-outline 300ms linear forwards;
+  animation: arm-trace 450ms linear infinite;
 }
 
-@keyframes arm-outline {
+/* Moving head: rotate the mask around the ring */
+@keyframes arm-trace {
   from {
-    -webkit-mask: conic-gradient(#000 0deg, transparent 0deg);
-    mask: conic-gradient(#000 0deg, transparent 0deg);
+    -webkit-mask: conic-gradient(
+      transparent 0deg,
+      transparent 320deg,
+      rgba(0, 0, 0, 0.15) 330deg,
+      rgba(0, 0, 0, 0.55) 345deg,
+      #000 360deg
+    );
+    mask: conic-gradient(
+      transparent 0deg,
+      transparent 320deg,
+      rgba(0, 0, 0, 0.15) 330deg,
+      rgba(0, 0, 0, 0.55) 345deg,
+      #000 360deg
+    );
   }
+
   to {
-    -webkit-mask: conic-gradient(#000 360deg, transparent 0deg);
-    mask: conic-gradient(#000 360deg, transparent 0deg);
+    -webkit-mask: conic-gradient(
+      transparent 360deg,
+      transparent 680deg,
+      rgba(0, 0, 0, 0.15) 690deg,
+      rgba(0, 0, 0, 0.55) 705deg,
+      #000 720deg
+    );
+    mask: conic-gradient(
+      transparent 360deg,
+      transparent 680deg,
+      rgba(0, 0, 0, 0.15) 690deg,
+      rgba(0, 0, 0, 0.55) 705deg,
+      #000 720deg
+    );
   }
 }
 
