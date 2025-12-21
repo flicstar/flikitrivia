@@ -1,5 +1,4 @@
 import React from "react";
-import GitHubButton from "react-github-btn";
 import styles from "../styles/instructions.module.scss";
 import Button from "./button";
 
@@ -20,7 +19,7 @@ export default function Instructions(props: Props) {
                    <div>
   Made with ♥ by{" "}
   <a
-    href="https://flicstar.com"
+    href="https://github.com/flicstar/"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -46,10 +45,6 @@ export default function Instructions(props: Props) {
     Wikitrivia
   </a>
 </div>
-          <GitHubButton
-            href="https://github.com/flicstar/flikitrivia"
-            data-size="large"
-          ></GitHubButton>
         </div>
       </div>
     </div>
