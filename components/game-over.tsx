@@ -53,9 +53,10 @@ export default function GameOver(props: Props) {
           <img src="/images/share.svg" alt="share" className={styles.shareIcon} />
         </Button>
       </div>
-      <div className={styles.about}>
+    </animated.div>
+     <div className={styles.about}>
                          <div>
-        Not in the fam? Play{" "}
+        Not in the family? Play{" "}
         <a
           href="https://github.com/flicstar/"
           target="_blank"
@@ -63,6 +64,5 @@ export default function GameOver(props: Props) {
         >
           OzOnly
         </a></div></div>
-    </animated.div>
   );
 }

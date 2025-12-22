@@ -1,4 +1,4 @@
-export function createWikimediaImage(image: string, width = 300): string {
+export function createWikimediaImage(image: string, width = 360): string {
 
   // If it's already a full URL (Wikipedia, local, CDN, etc)
   if (image.startsWith("http")) {
