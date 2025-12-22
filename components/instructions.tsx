@@ -13,7 +13,8 @@ export default function Instructions(props: Props) {
     <div className={styles.instructions}>
       <div className={styles.wrapper}>
         <h1 className={styles.title}>Famozily</h1>
-        <h2>Every family has a place in history. Drag the cards to the timeline.”</h2>
+        <h2>Every family has a place in history.</h2>
+        <h3>Drag the cards to the timeline.</h3>
         <Button onClick={start} text="Play" />
         <div className={styles.about}>
                    <div>
