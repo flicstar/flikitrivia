@@ -62,7 +62,7 @@ export default function GameOver(props: Props) {
           rel="noopener noreferrer"
         >
           OzOnly
-        </a></div>
+        </a></div></div>
     </animated.div>
   );
 }
